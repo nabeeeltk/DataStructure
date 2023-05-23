@@ -53,6 +53,7 @@
 
   
 // }
+// ignore: unused_import
 import 'dart:async';
 
 class node{
@@ -123,14 +124,18 @@ class linkedlist {
   //   preve?.next=temp.next;
   // }
 
-  void display(){
+  
 
+  void display(){
+   int sum=0;
     if(head==null){
       print("empty");
 
     }else{
       node? Temp= head;
       while(Temp!=null){
+
+        
         print(Temp.data);
         Temp=Temp.next;
       }

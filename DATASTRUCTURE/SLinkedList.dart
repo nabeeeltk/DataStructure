@@ -1,56 +1,49 @@
-
-class Node{
+class Node {
   dynamic data;
-   Node? next; 
+  Node? next;
 
-   Node(this.data);
+  Node(this.data);
 }
 
-
 class linkedlist {
+  Node? head;
+  Node? tail;
 
-Node? head; 
-Node? tail;
+  linkedlist() {
+    head = null;
+    tail = null;
+  }
+  void addData(dynamic data) {
+    Node newNode = Node(data);
 
-    linkedlist() {
-      head=null;
-      tail=null;
+    if (head == null) {
+      head = newNode;
+    } else {
+      tail?.next = newNode;
+      tail = newNode;
     }
-    void addData(dynamic data){
-      Node newNode =Node(data);
+  }
 
-       if(head==null){
-        head=newNode;
-       }else{
-         tail?.next  = newNode;
-            tail=newNode;  
-       }
-
+  void display() {
+    if (head == null) {
+      print("empty");
+      return;
     }
-        void display(){
-         if(head==null){
-          print("empty");
-          return;
-         }
-         Node? temp = head;
+    Node? temp = head;
 
-         while(temp!=null){
-          print(temp.data);
-          temp= temp.next! ;
-         }
-
-
-        }
-
+    while (temp != null) {
+      print(temp.data);
+      temp = temp.next!;
+    }
+  }
 }
 
 void main(List<String> args) {
-linkedlist list=new linkedlist();
-list.addData(5);
-list.addData(140);
-list.addData(50);
-list.display();
-
+  linkedlist list = new linkedlist();
+  list.addData(5);
+  list.addData(140);
+  list.addData(50);
+  list.display();
 }
 // ignore: unused_import
 
@@ -125,15 +118,16 @@ list.display();
   
 
 //   void display(){
-//    int sum=0;
+
+
+
+  
 //     if(head==null){
 //       print("empty");
 
 //     }else{
 //       node? Temp= head;
 //       while(Temp!=null){
-
-        
 //         print(Temp.data);
 //         Temp=Temp.next;
 //       }

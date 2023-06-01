@@ -56,63 +56,59 @@
 //   queue.display();
 // }
 
-class node{
-dynamic data;
-  node?next;
+class node {
+  dynamic data;
+  node? next;
   node(this.data);
-
 }
-class Queue{
+
+class Queue {
   node? front;
-  node?rear;
+  node? rear;
 
-  bool get isEmpty=> front == null;
+  bool get isEmpty => front == null;
 
-  void Enqueue(dynamic data ){
-     node newnode =node(data);
-     if(isEmpty){
-      front=newnode;
-      rear =newnode;
-
-     }else{
-    rear!.next=newnode;
-    rear=newnode;
-     }
-
-  }
-  dynamic dequeue(){
-    if(isEmpty){
-      return 'no data ';
-
-    }else{
-      node dequeuenode=front!;
-      front=front!.next;
-      if(front==null){
-        rear=null;
-      }
-      dequeuenode .next=null;
-      return dequeuenode.data;
-
+  void Enqueue(dynamic data) {
+    node newnode = node(data);
+    if (isEmpty) {
+      front = newnode;
+      rear = newnode;
+    } else {
+      rear!.next = newnode;
+      rear = newnode;
     }
-
   }
-  void display(){
-    if(isEmpty){
-      return;
-    }else{
-      node temp= front!;
-      while(temp!=null){
-        print(temp.data);
-        temp=temp.next!;
 
+  dynamic dequeue() {
+    if (isEmpty) {
+      return 'no data ';
+    } else {
+      node dequeuenode = front!;
+      front = front!.next;
+      if (front == null) {
+        rear = null;
+      }
+      dequeuenode.next = null;
+      return dequeuenode.data;
+    }
+  }
+
+  void display() {
+    if (isEmpty) {
+      return;
+    } else {
+      node temp = front!;
+      while (temp != null) {
+        print(temp.data);
+        temp = temp.next!;
       }
     }
   }
 }
+
 void main(List<String> args) {
-  Queue queue=Queue();
+  Queue queue = Queue();
   queue.Enqueue(10);
   queue.Enqueue(20);
   queue.display();
-
 }

@@ -36,10 +36,8 @@ void insertionSortsample(List<int> arr) {
 }
 
 void main() {
-  List<int> numbers = [5, 8, 3, 9, 2, 7,0];
-
+  List<int> numbers = [5, 8, 3, 9, 2, 7, 0];
 
   insertionSortsample(numbers);
   print(numbers);
 }
-

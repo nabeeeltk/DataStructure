@@ -48,54 +48,54 @@
 //   Stack.pop();
 //   Stack.display();
 // }
-  class node {
-    node? next;
-    dynamic data;
-    node(this.data);
-
-  }
-  class Stack{
-    node? Head;
-    bool get isEmpty=> Head==null;
-
-    void push(dynamic data){
-
-      node pushnode=node(data);
-
-      pushnode.next=Head;
-      Head=pushnode;
-      
-    }
-    dynamic pop(){
-      if(isEmpty){
-        return 'stack is empty';
-      }else{
-        node popnode=Head!;
-        Head=popnode.next;
-        popnode.next=null;
-        return popnode.data;
-
-      }
-    }
-    void display(){
-      if(isEmpty){
-        return;
-      }else{
-        node tamp=Head!;
-        while(tamp!=null){
-          print(tamp.data);
-          tamp=tamp.next!;
-        }
-      }
-    }
-
-  }
-  void main(List<String> args) {
-    Stack stack =Stack();
-    stack.push(10);
-    stack.push(20);
-    stack.push(30);
-    stack.pop();
-    stack.display();
-
+class node {
+  node? next;
+  dynamic data;
+  node(this.data);
 }
+
+class Stack {
+  node? Head;
+  bool get isEmpty => Head == null;
+
+  void push(dynamic data) {
+    node pushnode = node(data);
+
+    pushnode.next = Head;
+    Head = pushnode;
+  }
+
+  dynamic pop() {
+    if (isEmpty) {
+      return 'stack is empty';
+    } else {
+      node popnode = Head!;
+      Head = popnode.next;
+      popnode.next = null;
+      return popnode.data;
+    }
+  }
+
+  void display() {
+    if (isEmpty) {
+      return;
+    } else {
+      node tamp = Head!;
+      while (tamp != null) {
+        print(tamp.data);
+        tamp = tamp.next!;
+      }
+    }
+  }
+}
+
+void main(List<String> args) {
+  Stack stack = Stack();
+  stack.push(10);
+  stack.push(20);
+  stack.push(30);
+  stack.pop();
+  stack.display();
+}
+
+  

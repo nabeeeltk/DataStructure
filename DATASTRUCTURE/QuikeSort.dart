@@ -1,4 +1,3 @@
-import 'dart:math';
 
 List<int> QuickSort(List<int> a) {
   if (a.length <= 1) {

@@ -50,7 +50,7 @@ class Queue {
   }
   void enqueue(dynamic value) {
     _data.add(value);
-  }
+  } 
 
   void dequeue() {
     if (_data.isEmpty) {

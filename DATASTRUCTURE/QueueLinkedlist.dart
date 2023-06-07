@@ -98,7 +98,8 @@ class Queue {
       return;
     } else {
       node temp = front!;
-      while (temp != null) {
+      // ignore: unnecessary_null_comparison
+      while (temp!= null) {
         print(temp.data);
         temp = temp.next!;
       }

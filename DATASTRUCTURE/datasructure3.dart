@@ -55,7 +55,6 @@ class linkedlist {
 
 void main(List<String> args) {
   linkedlist list = linkedlist(); 
-  linkedlist list2 = linkedlist();
   list.adddata(10);
   list.adddata(20);
   list.adddata(30);

@@ -81,6 +81,7 @@ class Stack {
       return;
     } else {
       node tamp = Head!;
+      // ignore: unnecessary_null_comparison
       while (tamp != null) {
         print(tamp.data);
         tamp = tamp.next!;

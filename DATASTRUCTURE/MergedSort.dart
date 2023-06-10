@@ -52,7 +52,7 @@ List<int> mergeSort(List<int> arr) {
   List<int> left = arr.sublist(0, mid);
   List<int> right = arr.sublist(mid);
 
-  return mergesot(mergeSort(right), mergeSort(left));
+  return mergesot(mergeSort(left), mergeSort(right));
 }
 
 mergesot(List<int> right, List<int> left) {
@@ -80,13 +80,7 @@ mergesot(List<int> right, List<int> left) {
 }
 
 void main(List<String> args) {
-  List<int> arr = [
-    6,
-    5,
-    8,
-    0,
-    1,
-  ];
+  List<int> arr = [6,5,8,0,1,];
   List<int> sorted = mergeSort(arr);
   print(sorted);
 }

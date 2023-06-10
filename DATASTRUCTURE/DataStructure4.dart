@@ -90,7 +90,7 @@
 //   List<int> sortedArr = QuickSort(array);
 //   print(sortedArr);
 // }
-
+//  '...................mergrdsord .........................
 // List<int> mergedSort(List<int> array){
 //   if(array.length<=1){
 //   return array;
@@ -131,6 +131,8 @@
 // List<int> sortedArr= mergedSort(array);
 //  print(sortedArr);
 // }
+
+// ............................queue............................
 
 // class Queue {
 //   late List<int> _data;
@@ -175,6 +177,8 @@
 
 // import 'dart:io';
 
+// .......................Stack................................
+
 // class Stack {
 //   late List<dynamic> _data;
 
@@ -216,3 +220,4 @@
 //   stack.pop();
 //   print(stack._data);
 // }
+

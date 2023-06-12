@@ -1,51 +1,51 @@
-class TreeNode {
+class treenode {
   late int value;
-  TreeNode? left;
-  TreeNode? right;
-  TreeNode(this.value);
+  treenode? left;
+  treenode? right;
+  treenode(this.value);
 }
 
-class BinarySearchTree {
-  TreeNode? root;
-
-  BinarySearchTree();
+class BinarysearchTree {
+  treenode? root;
+  BinarysearchTree();
 
   void insert(int value) {
-    TreeNode newNode = TreeNode(value);
+    treenode newnode = treenode(value);
 
     if (root == null) {
-      root = newNode;
+      root = newnode;
     } else {
-      TreeNode? currontnode = root;
+      treenode? currenttnode = root;
 
       while (true) {
-        if (value < currontnode!.value) {
-          if (currontnode.left == null) {
-            currontnode.left = newNode;
+        if (value < currenttnode!.value) {
+          if (currenttnode.left == null) {
+            currenttnode.left = newnode;
             break;
           } else {
-            currontnode = currontnode.left;
+            currenttnode = currenttnode.left;
           }
         } else {
-          if (currontnode.right == null) {
-            currontnode.right = newNode;
+          if (currenttnode.right == null) {
+            currenttnode.right = newnode;
             break;
           } else {
-            currontnode = currontnode.right;
+            currenttnode = currenttnode.right;
           }
         }
       }
     }
   }
 
-  bool contains(int value) {
-    TreeNode? currentNode = root;
 
-    while (currentNode != null) {
-      if (value < currentNode.value) {
-        currentNode = currentNode.left;
-      } else if (value > currentNode.value) {
-        currentNode = currentNode.right;
+
+  bool cuntains(int value) {
+    treenode? currenttnode = root;
+    while (currenttnode != null) {
+      if (value < currenttnode.value) {
+        currenttnode = currenttnode.left;
+      } else if (value < currenttnode.value) {
+        currenttnode = currenttnode.right;
       } else {
         return true;
       }
@@ -55,13 +55,10 @@ class BinarySearchTree {
 }
 
 void main(List<String> args) {
-  BinarySearchTree obj = BinarySearchTree();
-
-  obj.insert(9);
+  BinarysearchTree obj = BinarysearchTree();
   obj.insert(6);
+  obj.insert(8);
   obj.insert(3);
   obj.insert(7);
-  obj.insert(1);
-  obj.insert(4);
-  print(obj.contains(2));
+  print(obj.cuntains(6));
 }

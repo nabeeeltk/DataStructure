@@ -1,63 +1,106 @@
 class Heap {
- late  List<int> heap;
+  late  List<int> _heap;
 
   Heap() {
-    heap = [];
+    _heap = [];
   }
 
-  void addToHeap(int value) {
-    heap.add(value);
-    heapify(heap, heap.length, 0);
+  void insert(int value) {
+    _heap.add(value);
+    _bubbleUp(_heap.length - 1);
   }
 
-  int? deleteFromHeap() {
-    if (heap.length == 0) {
-      return null;
+  int remove() {
+    if (_heap.isEmpty) {
+      throw Exception("Heap is empty.");
     }
 
-    int root = heap[0];
-    heap[0] = heap[heap.length - 1];
-    heap.removeLast();
-    heapify(heap, heap.length, 0);
+    final rootValue = _heap[0];
+    final lastValue = _heap.removeLast();
 
-    return root;
+    if (_heap.isNotEmpty) {
+      _heap[0] = lastValue;
+      _bubbleDown(0);
+    }
+
+    return rootValue;
   }
 
-  void heapify(List<int> arr, int n, int i) {
-    int largest = i;
-    int l = 2 * i + 1;
-    int r = 2 * i + 2;
-
-    if (l < n && arr[l] > arr[largest]) {
-      largest = l;
-    }
-    if (r < n && arr[r] > arr[largest]) {
-      largest = r;
-    }
-    if (largest != i) {
-      swap(arr, largest, i);
-      heapify(arr, n, largest);
+  void _bubbleUp(int index) {
+    while (index > 0) {
+      final parentIndex = (index - 1) ~/ 2;
+      if (_heap[parentIndex] > _heap[index]) {
+        _swap(index, parentIndex);
+        index = parentIndex;
+      } else {
+        break;
+      }
     }
   }
 
-  void swap(List<int> arr, int i, int j) {
-    int temp = arr[i];
-    arr[i] = arr[j];
-    arr[j] = temp;
+  void _bubbleDown(int index) {
+    final lastIndex = _heap.length - 1;
+
+    while (true) {
+      final leftChildIndex = 2 * index + 1;
+      final rightChildIndex = 2 * index + 2;
+      int smallestIndex = index;
+
+      if (leftChildIndex <= lastIndex && _heap[leftChildIndex] < _heap[smallestIndex]) {
+        smallestIndex = leftChildIndex;
+      }
+
+      if (rightChildIndex <= lastIndex && _heap[rightChildIndex] < _heap[smallestIndex]) {
+        smallestIndex = rightChildIndex;
+      }
+
+      if (smallestIndex != index) {
+        _swap(index, smallestIndex);
+        index = smallestIndex;
+      } else {
+        break;
+      }
+    }
   }
 
-  void printHeap() {
-    print("heap: $heap");
+  void _swap(int i, int j) {
+    final temp = _heap[i];
+    _heap[i] = _heap[j];
+    _heap[j] = temp;
+  }
+
+  bool isEmpty() {
+    return _heap.isEmpty;
+  }
+
+  int size() {
+    return _heap.length;
+  }
+
+  List<int> getHeap() {
+    return _heap;
   }
 }
 
 void main() {
-  Heap h = Heap();
-  h.addToHeap(10);
-  h.addToHeap(5);
-  h.addToHeap(15);
-  h.addToHeap(3);
-  h.addToHeap(7);
-  h.deleteFromHeap();
-  h.printHeap();
+  final heap = Heap();
+
+  heap.insert(5);
+  heap.insert(3);
+  heap.insert(8);
+  heap.insert(1);
+  heap.insert(10);
+
+  print("Heap: ${heap.getHeap()}"); // Output: Heap: [1, 3, 8, 5, 10]
+
+  while (!heap.isEmpty()) {
+    final removedValue = heap.remove();
+    print("Removed value: $removedValue");
+  }
+  // Output:
+  // Removed value: 1
+  // Removed value: 3
+  // Removed value: 5
+  // Removed value: 8
+  // Removed value: 10
 }

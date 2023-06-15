@@ -62,4 +62,7 @@ void main(List<String> args) {
 
   print(obj.search('apple'));
   print(obj.search('mango'));
+  print(obj.startsWith('app'));
+  print(obj.startsWith('ora'));
+  print(obj.startsWith('go'));
 }

@@ -1,4 +1,3 @@
-
 class TreeNode {
   int value;
   TreeNode? left;
@@ -55,42 +54,46 @@ class BinarySearchTree {
 
     return false;
   }
-void InOrder(){
-  if(root!=null){
-    InOrderHelper(root);
 
+  void InOrder() {
+    if (root != null) {
+      InOrderHelper(root);
+    }
   }
-}
-void InOrderHelper(TreeNode? node){
-  if(node!=null){
-    InOrderHelper(node.left);
-    print(node.value);
-    InOrderHelper(node.right);
-    
-  }
-}
-void PreOrder(){
-  PreOrderHelper(root);
-}
-void PreOrderHelper(TreeNode? node){
-  if(node!=null){
-  print(node.value);
-  PreOrderHelper(node.left);
-  PreOrderHelper(node.right);
-  }
-}
-void PostOrder(){
-PostOrderHelper(root);
-}
-void PostOrderHelper(TreeNode?node){
-  if(node!=null){
-    PostOrderHelper(node.left);
-    PostOrderHelper(node.right);
-    print(node.value);
 
+  void InOrderHelper(TreeNode? node) {
+    if (node != null) {
+      InOrderHelper(node.left);
+      print(node.value);
+      InOrderHelper(node.right);
+    }
+  }
+
+  void PreOrder() {
+    PreOrderHelper(root);
+  }
+
+  void PreOrderHelper(TreeNode? node) {
+    if (node != null) {
+      print(node.value);
+      PreOrderHelper(node.left);
+      PreOrderHelper(node.right);
+    }
+  }
+
+  void PostOrder() {
+    PostOrderHelper(root);
+  }
+
+  void PostOrderHelper(TreeNode? node) {
+    if (node != null) {
+      PostOrderHelper(node.left);
+      PostOrderHelper(node.right);
+      print(node.value);
+    }
   }
 }
-}
+
 void main(List<String> args) {
   BinarySearchTree obj = BinarySearchTree();
   obj.insert(10);
@@ -99,9 +102,6 @@ void main(List<String> args) {
   obj.insert(4);
   obj.insert(9);
 
-obj.InOrder();
-print('....................');
-obj.PostOrder();
-print('..................');
-obj.PreOrder();
+  print(obj.contains(10));
+  
 }

@@ -1,7 +1,6 @@
 class TrieNode {
   bool isEndOfWord;
   late Map<String, TrieNode> children;
-
   TrieNode() : isEndOfWord = false {
     children = <String, TrieNode>{};
   }
@@ -19,7 +18,6 @@ class Trie {
 
     for (int i = 0; i < word.length; i++) {
       String character = word[i];
-
       if (!currentNode!.children.containsKey(character)) {
         currentNode.children[character] = TrieNode();
       }
@@ -27,7 +25,6 @@ class Trie {
     }
     currentNode!.isEndOfWord = true;
   }
-
   bool search(String word) {
     TrieNode? currentNode = root;
     for (int i = 0; i < word.length; i++) {
@@ -39,7 +36,6 @@ class Trie {
     }
     return currentNode!.isEndOfWord;
   }
-
   bool startsWith(String prefix) {
     TrieNode? currentNode = root;
 
@@ -65,4 +61,5 @@ void main(List<String> args) {
   print(obj.startsWith('app'));
   print(obj.startsWith('ora'));
   print(obj.startsWith('go'));
+
 }

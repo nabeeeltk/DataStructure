@@ -1,3 +1,5 @@
+import 'datasructure3.dart';
+
 class Node {
   dynamic data;
   Node? next;
@@ -82,3 +84,50 @@ void main(List<String> args) {
   //   newNode.next = temp?.next;
   //   temp?.next = newNode;
   // }
+
+
+ class node{
+     dynamic data;
+     Node? next;
+
+     node(this.data
+
+     ) ;
+      }
+      class linkedList{
+        
+      node? head;
+      node?tail;
+      linkedList(){
+        head =null;
+        tail =null;
+      }
+
+      void addData(dynamic data){
+        node newNode =node(data);
+
+        if(head==null){
+          head=newNode;
+          tail=newNode;
+        }else{
+          tail?.next=newNode as Node?;
+          tail=newNode;
+        }
+
+      }
+      void Display(){
+
+        if(head==null){
+          print("no data");
+        }else
+        node?temp= head;
+          while(head!=null){
+            
+          }
+         
+      }
+
+      void main(){
+
+      }
+      }

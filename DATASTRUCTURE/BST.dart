@@ -10,7 +10,7 @@ class BinarySearchTree {
   TreeNode? root;
 
   BinarySearchTree();
-
+  
   void insert(int value) {
     TreeNode newNode = TreeNode(value);
 

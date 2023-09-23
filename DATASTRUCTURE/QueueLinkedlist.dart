@@ -107,6 +107,7 @@ class Queue {
   }
 }
 
+
 void main(List<String> args) {
   Queue queue = Queue();
   queue.Enqueue(10);
